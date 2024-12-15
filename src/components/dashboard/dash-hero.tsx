@@ -32,7 +32,7 @@ export default function DashHero({selectedLevel,selectedFolder,pdfs,handlePdfSel
           
         )}
         {selectedPdf && (
-          <div className="  grid col-span-3 h-12">
+          <div className="  grid col-span-3">
           <AiChat />
           </div>
           
