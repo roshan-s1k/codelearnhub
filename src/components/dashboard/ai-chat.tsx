@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {Send} from "lucide-react"
+import { Dialog ,DialogContent,DialogTrigger, DialogTitle} from "../ui/dialog";
 import {
   Card,
   CardContent,
@@ -75,7 +76,17 @@ export default function AiChat() {
   };
 
   return (
-      <Card className="w-full mx-auto h-8 bg-gray-700 flex flex-col justify-between z-40">
+      <Dialog>
+        <DialogTrigger className="w-60 flex justify-center">
+                    <div
+                      className="  bg-red-500 justify-center px-2 py-1 text-xl font-semibold transition-all border-2 rounded-xl border-black border-b-2 border-r-2 dark:border-white hover:-translate-y-[2px] hover:bg-slate-500"
+                      >
+                        Ask doubts to AI
+                    </div>
+          </DialogTrigger>
+          <DialogContent className="w-full">
+
+      <Card className="w-full mx-auto h-full bg-gray-700 flex flex-col justify-between z-40">
         <CardHeader>
           <CardTitle className="text-2xl tracking-wide text-center font-semibold">AI DOUBT ASSISTANT</CardTitle>
         </CardHeader>
@@ -88,15 +99,15 @@ export default function AiChat() {
                   message.sender === "user" ? "justify-end" : "justify-start"
                 }`}
                 ref={index === messages.length - 1 ? sectionRef : null} 
-              >
+                >
               
                 <div
                   className={`rounded-lg p-3 max-w-[70%] ${
                     message.sender === "user"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-secondary-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-secondary-foreground"
                   }`}
-                >
+                  >
                   <ReactMarkdown>{message.text}</ReactMarkdown>
                 </div>
               </code>
@@ -110,12 +121,12 @@ export default function AiChat() {
               handleSendMessage();
             }}
             className="flex w-full items-center space-x-1"
-          >
+            >
             <Input
               placeholder="Ask your doubts here"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-            />
+              />
             <Button type="submit" size="icon">
               <Send className="h-4 w-4" />
               <span className="sr-only">Send</span>
@@ -123,5 +134,7 @@ export default function AiChat() {
           </form>
         </CardFooter>
       </Card>
+      </DialogContent>
+      </Dialog>
   );
 }

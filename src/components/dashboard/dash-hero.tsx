@@ -18,27 +18,22 @@ export default function DashHero({selectedLevel,selectedFolder,pdfs,handlePdfSel
             selectedPdf={selectedPdf}
           />
           </div>
-          {selectedPdf && (<div className="">
+          {selectedPdf && (<div className=" flex-col flex gap-4 ">
           <QuizCard selectedPdf={selectedPdf}/>
+          <AiChat />
           </div>)}
         </div>
        )}
 
         {selectedPdf && (
-          <div className="col-span-7">
+          <div className="col-span-10">
             <DashPdfViewer selectedPdf={selectedPdf} />
           
           </div>
           
         )}
-        {selectedPdf && (
-          <div className="  grid col-span-3">
-          <AiChat />
-          </div>
-          
-        )}
+        </div>
         
-    </div>
 
 
   );

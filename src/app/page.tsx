@@ -1,9 +1,9 @@
-import { CtaSection } from "@/components/cta-section";
-import { Faq } from "@/components/faq";
-import { FeatureSection } from "@/components/features-section";
+import { CtaSection } from "@/components/home/cta-section";
+import { Faq } from "@/components/home/faq";
+import { FeatureSection } from "@/components/home/features-section";
 import Footer from "@/components/footer";
-import { Header} from "@/components/header";
-import { Hero } from "@/components/hero";
+import { Header} from "@/components/home/header";
+import { Hero } from "@/components/home/hero";
 
 export default function HomePage() {
   return (
