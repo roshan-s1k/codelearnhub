@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getData } from "@/utils/queryEmbeddings";
-import { auth } from "@clerk/nextjs/server";
+import { useUser } from "@clerk/nextjs";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -12,8 +12,8 @@ const chat = model.startChat({
 
 export async function POST(request: NextRequest) {
   const response= await request.json()
-  const session = await auth();
-  const namespace = session?.userId as string;
+  const {user}= await useUser();
+  const namespace = user?.emailAddresses[0].emailAddress as string;
 
   const { message } = response;
 

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import PDFParser from "pdf2json";
-import path from "path"; // For handling file paths
+import path from "path"; 
 import { promises as fs } from "fs";
 import { storeEmbeddings } from "@/utils/storeEmbeddings";
-import { auth } from "@clerk/nextjs/server";
+import { useUser } from "@clerk/nextjs";
 
 export async function POST(req: NextRequest) {
   const {selectedPdf}  = await req.json();
@@ -44,8 +44,8 @@ export async function POST(req: NextRequest) {
     await parsingPromise; 
 
     
-    const session = await auth();
-    const namespace = session?.userId as string;
+    const {user} = await useUser();
+    const namespace = user?.emailAddresses[0].emailAddress as string;
 
     await storeEmbeddings(parsedText, namespace);
 
