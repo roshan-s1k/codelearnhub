@@ -1,7 +1,6 @@
-import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 
-const DashChapters = ({ selectedFolder, selectedLevel, pdfs, handlePdfSelect }:any) => {
+export const SideBar = ({ selectedFolder, selectedLevel, pdfs, handlePdfSelect }:any) => {
   return (
     selectedLevel && (
       <Card >
@@ -36,5 +35,3 @@ const DashChapters = ({ selectedFolder, selectedLevel, pdfs, handlePdfSelect }:a
     )
   );
 };
-
-export default DashChapters;

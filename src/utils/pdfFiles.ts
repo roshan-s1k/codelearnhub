@@ -57,4 +57,4 @@ const pdfFiles={
           ],
         },
       }
-export default pdfFiles
+export {pdfFiles}

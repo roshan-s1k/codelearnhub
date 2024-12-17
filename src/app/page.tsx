@@ -1,7 +1,7 @@
 import { CtaSection } from "@/components/home/cta-section";
 import { Faq } from "@/components/home/faq";
 import { FeatureSection } from "@/components/home/features-section";
-import Footer from "@/components/footer";
+import {Footer} from "@/components/footer";
 import { Header} from "@/components/home/header";
 import { Hero } from "@/components/home/hero";
 

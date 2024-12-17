@@ -1,9 +1,10 @@
 "use client"
-import { DashHeader } from "@/components/dashboard/dash-header";
-import DashHero from "@/components/dashboard/dash-hero";
+
 import { useState } from "react";
-import pdfFiles from "@/components/dashboard/pdf-data";
-import Footer from "@/components/footer";
+import {pdfFiles} from "@/utils/pdfFiles";
+import {Footer} from "@/components/footer";
+import {  Header } from "@/components/dashboard/Header";
+import {Hero} from "@/components/dashboard/Hero";
 
 export default function Page() {
   const [selectedFolder, setSelectedFolder] = useState(null);
@@ -44,21 +45,27 @@ export default function Page() {
   return (
     <main>
       {/* Dashboard Header */}
-      <DashHeader 
-      folders={folders}
-      selectedFolder={selectedFolder}
-      handleFolderClick={handleFolderClick}
-      
-      levels={levels}
-      selectedLevel={selectedLevel}
-      handleLevelClick={handleLevelClick}
+      <Header
+        folders={folders}
+        selectedFolder={selectedFolder}
+        handleFolderClick={handleFolderClick}
+        
+        levels={levels}
+        selectedLevel={selectedLevel}
+        handleLevelClick={handleLevelClick}
       />
       
       <div className="pt-20">
-        <DashHero selectedLevel={selectedLevel} selectedFolder={selectedFolder} pdfs={pdfs} handlePdfSelect={handlePdfSelect} selectedPdf={selectedPdf} />
-
+        <Hero
+          selectedLevel={selectedLevel} 
+          selectedFolder={selectedFolder} 
+          pdfs={pdfs} 
+          handlePdfSelect={handlePdfSelect} 
+          selectedPdf={selectedPdf}
+        />
       </div>
-    <Footer/>
+      
+      <Footer/>
     </main>
   );
 }

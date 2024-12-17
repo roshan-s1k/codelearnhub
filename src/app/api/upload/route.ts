@@ -3,7 +3,7 @@ import PDFParser from "pdf2json";
 import path from "path"; 
 import { promises as fs } from "fs";
 import { storeEmbeddings } from "@/utils/storeEmbeddings";
-import { useUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 export async function POST(req: NextRequest) {
   const {selectedPdf}  = await req.json();
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     await parsingPromise; 
 
     
-    const {user} = await useUser();
+    const user = await currentUser()
     const namespace = user?.emailAddresses[0].emailAddress as string;
 
     await storeEmbeddings(parsedText, namespace);

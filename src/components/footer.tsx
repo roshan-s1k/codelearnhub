@@ -1,7 +1,7 @@
 import { Github } from "lucide-react";
 import Link from "next/link";
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className=" flex justify-between pr-10 pl-10 mt-10 pb-16 pt-10 flex-wrap ">
             <div className="flex basis-full md:flex-col md:justify-start md:basis-auto justify-between gap-8">
