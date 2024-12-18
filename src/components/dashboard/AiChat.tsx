@@ -71,6 +71,7 @@ export function AiChat() {
         </div>
       </DialogTrigger>
       <DialogContent className="w-full max-w-4xl mx-auto ">
+      <DialogTitle className="sr-only">AI Doubt Assistant</DialogTitle>
         <Card className="w-full bg-gray-800 rounded-lg shadow-lg flex flex-col h-full">
           <CardHeader>
             <CardTitle className="text-2xl font-semibold text-center text-white tracking-wider">

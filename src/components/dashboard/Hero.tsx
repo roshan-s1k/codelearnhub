@@ -2,7 +2,8 @@ import { SideBar } from "./Sidebar";
 import {AiChat} from "./AiChat";
 import {QuizCard} from "./QuizCard";
 import { Viewer } from "./Viewer";
-import { Divide } from "lucide-react";
+import { deleteData } from "@/utils/deleteData";
+
 
 export function Hero({selectedLevel,selectedFolder,pdfs,handlePdfSelect,selectedPdf}:any){
  
