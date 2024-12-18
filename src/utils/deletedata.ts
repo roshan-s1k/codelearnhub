@@ -21,4 +21,4 @@ const deleteData = async () => {
   }
 };
 
-export { deleteData };
+export default deleteData;

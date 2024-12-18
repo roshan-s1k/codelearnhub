@@ -1,4 +1,4 @@
-import { deleteData } from "@/utils/deleteData";
+import deleteData from "@/utils/deleteData";
 import { useEffect } from "react";
 
 interface ViewerProps {

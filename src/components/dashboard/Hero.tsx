@@ -2,7 +2,6 @@ import { SideBar } from "./Sidebar";
 import {AiChat} from "./AiChat";
 import {QuizCard} from "./QuizCard";
 import { Viewer } from "./Viewer";
-import { deleteData } from "@/utils/deleteData";
 
 
 export function Hero({selectedLevel,selectedFolder,pdfs,handlePdfSelect,selectedPdf}:any){
